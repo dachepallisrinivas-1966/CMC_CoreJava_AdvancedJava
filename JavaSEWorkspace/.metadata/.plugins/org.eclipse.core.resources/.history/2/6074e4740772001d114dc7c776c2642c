@@ -1,0 +1,25 @@
+package in.cmc.ui;
+
+import in.cmc.model.ComplexNumber;
+
+public class ComplexNumberApp {
+
+	public static void main(String[] args) {
+		ComplexNumber c1 = new ComplexNumber();		// constructor is executed
+		
+		System.out.println(c1.getRealPart());
+		System.out.println(c1.getImaginaryPart());
+		
+		
+		System.out.println("----------------------------------------------");
+
+		ComplexNumber c2 = new ComplexNumber();		// constructor is executed
+		System.out.println(c2.getRealPart());
+		System.out.println(c2.getImaginaryPart());
+		
+		
+		
+
+	}
+
+}

@@ -1,0 +1,16 @@
+package in.cmc.ui;
+
+import in.cmc.model.ComplexNumber;
+
+public class ComplexNumberApp {
+
+	public static void main(String[] args) {
+		ComplexNumber c1 = new ComplexNumber();
+		
+		System.out.println(c1.realPart);
+		System.out.println(c1.imaginaryPart);
+		
+
+	}
+
+}

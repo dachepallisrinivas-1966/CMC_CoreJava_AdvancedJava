@@ -1,0 +1,254 @@
+D.Srinivas
+Corporate Trainer
+32 years of experience
+15+ programming languages
+Trained for CapGemini, Cognizant, InfoSys, Wipro, Samsung, LTI, CGI, Mphasis etc.,
+------------------------------------------------------------------------------------------------
+
+Content
++   Core Java
++   MySQL
++   JDBC
++   Servlets
++   JSP
+
+
+                                                OOPS
+                                            --------------
+It is an programming paradigm.
+
+Features of Java:
+------------------------------
+platform independent
+    source code : sample.java
+    compiler:       sample.class        (byte code)
+    byte code is not targeted any o/s.
+    it can understood by JVM (Java Virtual Machine)
+    byte code to the JVM, it will convert the byte code into native machine code.
+
+secured
+robust
+
+simple
+portable
+
+object oriented
++   class
++   object
++   data hiding:
+        making data members as private, so that we cannot access them 
+        from other classes directly.
++   encapsulation:
+        it is the process accessing private data with the help of public 
+        methods.
+        it is implemented in the form of public setters and getters.
+
+        
+
++   inheritance
+
++   polymorphism
++   abstraction
+
+Coding Standards:
+---------------------
+1) Proper Indentation
+2) Naming Convensions
+        Camel Notation      :   variables, methods
+                int length;
+                int lengthOfBox
+
+
+        Pascal Notation     :   class names, interface names
+                class Student {
+
+                }
+
+                ArrayIndexOutOfBoundsException
+                 
+        Uppercase Notation  :   constants
+
+        Lowercase Notation  :   packages
+
+class:  
+    It is a user defined datatype that represent an entity
+    in terms of properties and behaviours.
+    no memory is allocated when we define a class.
+    it is a resuable software component.
+
+
+
+object:
+    it is a variable whose datatype is class. 
+    memory is allocted only when we create an object for a class.
+
+   
+
+
+    Student s1 = ....
+
+package:
+    collection of classes, interfaces, enums etc.,
+    package is represented as a folder in o/s.
+
+                            domain: www.cmc.in
+                            package name: in.cmc
+
+    in.cmc.model        :   all the model classes
+    in.cms.ui           :   executable programs
+
+
+access specifiers: (access modifiers):
+1) default          : members under this access can be used in the entire package.
+2) private          : members can be accessed only within the class in which it
+                        is defined.
+3) public           : members can be accessed either within the class or from outside
+                        the class.
+
+4) protected        : members can be accessed either within the class or from any of
+                        it's sub class.
+
+
+
+
+constructors:
+------------------
+1. it is a special method that is executed automatically whenever an object is created.
+2. it should have the same name as that of class.
+3. it can not return any value, should not have void as a return type.
+4. it can have parameters.
+5. a class can have many constructors. 
+
+
+"this" reference:
+------------------
+it represent implied object.
+implied object is the one which is invoking a methods currently.
+
+
+static:
+-------
+static means "sharable".
+
+1. static data members
+        these are used to share common data of all objects of the class.
+
+        private static String companyName;
+
+
+2. static methods
+
+        they can be called directly with the class name.
+        it do not require any object to call.
+
+        JVM will  Call our main() like ...
+
+                ComplexNumberApp.main()
+
+        static methods allow only static data members.
+
+        static methods do not allow "this" keyword.
+
+
+array of objects:
+---------------------
+    Product[] products = new Product[5];
+
+
+inheritance:
+---------------
+    creating a new class (sub class) from an existing class (super class).
+    sub class can access all the featurs of super class as well as any extra features
+    that are added to it.
+    it represent an "is-A" relationship.
+    meant for "code usability."
+    "extends" keyword is used to create sub classes.
+
+
+types:
+------
+1)  simple (single) inheritance
+2)  hierarchical inheritance
+3)  multi-level inheritance
+
+note:
+------
+    multiple inheritance is not supported by java using classes.
+
+
+method overloading:
+    when a class contian more than one method having the same name but with different
+    parameter list.
+
+    class  Test {
+        public void show(int a) {
+            System.out.println(a);
+        }
+        public void show(double a) {
+            System.out.println(a);
+        }
+        public void show(String a) {
+            System.our.println(a);
+        }
+    }
+
+constructor overloading:
+    when a class contain multiple constructors
+
+method overriding:
+    when a sub class contain a method that has same signature as that of another 
+    method in it's super class, then the sub class method is called as 
+    overriding method.
+
+    method signature = method name + parameter list
+
+    "@Override" annotation can be used on top of overriding methods.
+
+
+    class   Super {
+        public int add(int a, int b) {
+            return a+b;
+        }
+    }
+
+    class  Sub   extends  Super {
+       @Override
+        public int add(int a, int b) {      // overriding method
+            return a+b+100;
+        }
+    }
+
+    super:
+    -------
+        the "super" keyword can used to refer super class data members,
+        super class methods, super class constructors from the sub class.
+
+        super();                        call the super class default constructor
+        super(arg-1, arg-2, ...)        call the super class parameter constructor
+        super.dataMemberName
+        super.method(arg-1, arg-2, ...)
+
+
+                                    Person (name, age)
+
+                        Employee (salary)               Student (fee)
+                                            
+                                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

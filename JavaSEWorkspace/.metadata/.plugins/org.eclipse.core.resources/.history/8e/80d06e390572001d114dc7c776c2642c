@@ -1,0 +1,13 @@
+package in.cmc.ui;
+
+import in.cmc.model.ComplexNumber;
+
+public class ComplexNumberApp {
+
+	public static void main(String[] args) {
+		ComplexNumber c1 = new ComplexNumber(5,6);
+		
+
+	}
+
+}
