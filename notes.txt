@@ -32,6 +32,11 @@ robust
 simple
 portable
 
+
+
+
+
+
 object oriented
 +   class
 +   object
@@ -42,13 +47,10 @@ object oriented
         it is the process accessing private data with the help of public 
         methods.
         it is implemented in the form of public setters and getters.
-
-        
-
 +   inheritance
 
-+   polymorphism
 +   abstraction
++   polymorphism
 
 Coding Standards:
 ---------------------
@@ -76,25 +78,29 @@ class:
     no memory is allocated when we define a class.
     it is a resuable software component.
 
-
+    classes are used for different purposes. based on the purpose
+    we call them different names.
+    
+    model      :   to store data
 
 object:
     it is a variable whose datatype is class. 
     memory is allocted only when we create an object for a class.
 
-   
+    syntax:
+    -------
+    ClassName   objectName;             // reference  (stack)
+    objectName = new ClassName();       // object      (heap)
 
-
-    Student s1 = ....
-
+  
 package:
     collection of classes, interfaces, enums etc.,
     package is represented as a folder in o/s.
 
-                            domain: www.cmc.in
-                            package name: in.cmc
+                            domain: www.cms.in
+                            package name: in.cms
 
-    in.cmc.model        :   all the model classes
+    in.cms.model        :   all the model classes
     in.cms.ui           :   executable programs
 
 
@@ -107,8 +113,6 @@ access specifiers: (access modifiers):
 
 4) protected        : members can be accessed either within the class or from any of
                         it's sub class.
-
-
 
 
 constructors:
@@ -231,10 +235,177 @@ method overriding:
 
                                     Person (name, age)
 
-                        Employee (salary)               Student (fee)
-                                            
-                                        
+                                    Employee (salary)               
 
+5-Dec-2022
+----------------------
+
+hierarchical inheritance:
+--------------------------
+
+                                     Person (name, age)
+
+                        Employee (salary)               Student (fee)
+
+multi level inheritance:
+-------------------------
+
+                                    Person (name, age)
+
+                                    Employee (salary) extends Person
+
+                                    Manager (bonus) extends Employee
+
+create the necessary classes and the App also.
+
+
+polymorphism:
+---------------
+    poly = many
+    morph = forms
+
+    exhibiting the different behaviours for a same method call.
+
+                                move()
+
+            man         ----------------------->        walk
+            fish        ----------------------->        swim
+            bird        ----------------------->        fly
+            snake       ----------------------->        crawl
+
+    move() is exhibiting different behaviours and hence it is known as polymohic method.
+
+
+note:
+-----
+    super class reference vsriable can store super class object or objects of any sub class
+    of it.
+
+
+                Peron
+    Employee            Student
+
+    Manager
+
+
+    Person person = new Person();
+    Person person = new Employee();
+    Person person = new Student();
+    Employee employee = new Manager();
+    Person person = new Manager();
+
+
+
+    Task:
+    -----
+
+    class   A {
+            public void show() {
+                System.out.println("A - show");
+            }
+        }
+
+        class   B  extends  A {
+            public void print() {
+                System.out.println("B - print");
+            }
+        }
+
+        class   Test {
+            public static void main(String[] args) {
+                B obj = new B();
+                obj.show();         // A - show
+                obj.print();        // B - print
+
+                A obj2 = new A();
+                obj2.show();        // A - show
+                obj2.print();       // error
+
+
+                A obj3 = new B();   
+                obj3.show();        // A - show
+                obj3.print();       // error
+            }
+        }
+
+
+                                    Object class            (java.lang package):
+                                   ----------------------------------------------
++   it is known as "universal super class".
++   every class whether it is a pre-defined or user-defined, it is inherited automatically
+    from java.lang.Object class.
+
+java.lang.Object class methods:
+-------------------------------
+1) public String toString()
+        it is generally used to convert the object data into string.
+        it is provided with default definition.
+        (fully-qualified-class-name + "@" + hashcode-in-hexa-decimal-form)
+
+2) public boolean equals(Object o)
+        it is used to implement our own logic for object comparision.
+
+
+                                                abstraction
+                                            ---------------------            
+abstract means "incomplete".
+abstraction is the feature of disclosing only the features without exposing the background functionality.
+
+abstract keyword can be used in two ways.
+a) abstract class
+b) abstract method
+
+
+abstract class:
+-----------------
+    it is a class for which we cannot create an object for it.
+
+
+                                            abstract class  Person (name, age)
+
+                                Employee (salary)                           Student (fee)
+
+
+abstract method:
+    it is a method declaration with "abstract" keyword without any definition.
+    it must be defined only inside an abstract class.
+    abstract methods can be defined only in an abstract class. 
+    But an abstract class need not contain any abstract methods.
+
+    to make of use of this abstract class, create a sub class and override all abstract methods in it.
+    then create objects for this abstract class and use it.
+
+
+    public abstract class  A {
+        public abstract void show();
+    }
+
+
+    class  B  extends  A {
+        @Override
+        public void show() {
+            System.out.println("some definition ...");
+        }
+    }
+
+    class Test {
+        public static void main(String[] args) {
+            B obj = new B();
+            obj.show();
+        }
+    }
+
+
+
+Assignments:
+------------
+1) include toString() in Person, Employee, Student, Manager class.
+   modify the InheritanceApp program accordingly.
+
+2) Create a Product class
+        prodName, price
+   Store 10 products in an array.
+   write a program to display all the products.
 
 
 

@@ -31,5 +31,27 @@ public class ComplexNumber {
 	public int getImaginaryPart() {
 		return this.imaginaryPart;
 	}
+	
+	@Override
+	public String toString() {
+		String result = "";						
+		
+		result += realPart;
+		if (imaginaryPart > 0)							
+			result += "+";
+		else 
+			result += "-";
+		result += Math.abs(imaginaryPart);
+		result += "i";
+		
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		ComplexNumber first = this;
+		ComplexNumber second = (ComplexNumber)obj;			
+		return (first.realPart == second.realPart && first.imaginaryPart == second.imaginaryPart) ? true : false;
+	}
 
 }
