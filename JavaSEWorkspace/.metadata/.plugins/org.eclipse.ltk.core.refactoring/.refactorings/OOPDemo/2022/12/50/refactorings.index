@@ -1,2 +1,7 @@
 1670221724431	Rename type 'A'
 1670221810393	Delete element
+1670307128433	Rename type 'LinearSorting'
+1670307137517	Rename type 'BubbleSorting'
+1670309298030	Rename package 'in.cmc.model'
+1670309312788	Rename package 'in.cmc.ui'
+1670309325793	Rename package 'in.cmc.service'

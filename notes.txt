@@ -3,6 +3,12 @@ Corporate Trainer
 32 years of experience
 15+ programming languages
 Trained for CapGemini, Cognizant, InfoSys, Wipro, Samsung, LTI, CGI, Mphasis etc.,
+
+You can reach me:
+Call/WhatsApp : 6305730633
+dachepallisrinivas@yahoo.co.in
+github.com/dachepallisrinivas-1966
+
 ------------------------------------------------------------------------------------------------
 
 Content
@@ -264,7 +270,7 @@ polymorphism:
     poly = many
     morph = forms
 
-    exhibiting the different behaviours for a same method call.
+    exhibiting different behaviours for a same method call.
 
                                 move()
 
@@ -278,7 +284,7 @@ polymorphism:
 
 note:
 -----
-    super class reference vsriable can store super class object or objects of any sub class
+    super class reference variable can store super class object or objects of any sub class
     of it.
 
 
@@ -397,6 +403,304 @@ abstract method:
 
 
 
+
+final:
+-------
+    can be used in 3 ways.
+
+    a) final variable:
+            these are known as constants.
+
+            final double PI = 3.14;
+            double areaOfCirlce = PI * radius * radius;  
+
+    b) final methods:
+
+            we cannot override final methods.
+
+            class  Sample {
+
+                public final void show() {
+                    // logic
+                }
+
+            }
+
+            class  SubSample {
+
+                @Override
+                public void show() {
+                    // error - we can't override final method
+                } 
+
+            }
+
+    c) final class:
+
+            we can't create sub class for it.
+
+            eg: java.lang.Math 
+
+
+
+
+
+                                                interfaces
+                                            -------------------
+interface is also user-defined datatype.
+it does not contain properties.
+it can contain only public abstract methods and public static final variables.
+we cannot create object for an interface.
+
+to use the interface, we must create a sub class using "implements" and override all abstract methods.
+then create object for this sub class.
+
+using interfaces, we can acheive multiple inheritance.
+we can create a class from many interfaces. (multiple inheritance)
+
+
+
+class               extends             sub class
+interface           implements          sub class
+interface           extends             sub interface
+
+
+class               implements          interface-1, interface-2, ...
+
+class               implements          interface      extends         class
+
+
+interface   EmployeeRepository {
+    void save(Employee employee);
+    void findById(Long empId);
+}
+
+
+class       EmployeeRepositoryImpl   implements   EmployeeRepository {
+
+    @Override
+    public void save(Employee  employee) {
+        // logic goes here ....
+    }
+
+    @Override
+    piublic void findById(Long empId){
+        // logic goes here ...
+    }
+
+}
+
+class    Test {
+    public static void main(String[] args) {
+        EmployeeRepositoryImpl  obj = new EmployeeRepositoryImpl();
+        obj.save(new Employee(101, "srinivas", 50000.0));
+    }
+}
+
+
+                                        Built-In Packages
+						                ------------------
+                                        (Java SE Libraries)
+
+java.lang			(default package - because it is imported for every program)
+	Object          
+	System
+	Math
+	String
+	StringBuffer
+	StringBuilder
+	Exception
+	Throwable interface
+	Runnable interface
+	Wrapper classes - Integer, Double, Float, Long, Boolean
+
+
+java.util
+    Scanner
+   
+java.io
+    FileReader
+    BufferedReader
+
+to use any class, we need to specify fully qualified class name.(eg: packagename.classname) 
+or import them.
+
+java.lang is the default package. it is automatically imported for every program.
+
+java.lang.System class:
+   -------------------------------
+
+	class variables			              object
+	-------------------				    ---------
+	public static java.io.InputStream		in
+	public static java.io.PrintStream		out
+	public static java.io.PrintStream		err
+
+	System.in	carries signal from keyboard to VDU.
+	System.out, System.err carries signal directly to VDU.
+
+
+	methods:
+	------------
+	public static void gc();		request for garbage collection.
+	public static void exit(int)	terminates the program then and there. int could be either a 0 or 1.
+    String getEnvironmentVariable(String varName);
+    void setEnvironmentVariable(String varName,String value);
+
+
+java.lang.Math
+-------------------
+	public static fields:
+	------------------------
+		E, PI
+    	
+	public static methods
+	----------------------------
+		double pow()
+		double sin(angle in radians)
+            Math.sin(30)    =>  ???
+            Math.sin(Math.toRadians(30))    =>  0.5
+
+        double cos(angle in radians)
+		double sqrt()
+
+		ceil() : return next integer
+            Math.ceil(11.2) => 12
+		floor() : return previous integer
+            Math.floor(11.9) => 11
+		round() 
+            Math.round(11.2) =>  11
+            Math.round(11.9) =>  12
+
+		abs() : return |n|
+		toRadians()
+		toDegrees()
+
+java.lang.String
+---------------------
+	String is immutable	(not modifiable).
+    what is immutability?
+      ???
+
+	creating object:
+	---------------------
+	1) String	str;
+	2) String	str = new String();
+
+	3) String	str = "hello";
+	4) String	str = new String("hello");
+  
+
+	methods:
+	-------------
+	1) length()		2) toUpperCase()		3) toLowerCase()
+	4) indexOf(String)	5) lastIndexOf(String)		6) startsWith(String)
+	7) endsWith(String)	8) contains(String)		9) charAt(index)
+	10) substring(start_index [, end_index] )		11) split()
+	12) equals(String)	13) equalsIgnoreCase(String)	14) compareTo(String)
+	15) valueOf()		16) format()        17) replace(old_char, new_char)
+
+    18) join()  - JDK 1.8
+
+    "+" string concatenation operator
+
+
+    write a program to reverse a string.
+    input = abcd
+    output = bcda
+
+    
+
+
+String constant pool (String literal pool)
+------------------------------------------
+    This is a special memory used to store string constants.
+
+
+java.lang.StringBuffer and java.lang.StringBuilder:
+------------------------------------------------------------------
+	StringBuffer is thread-safe. (synchronized)
+	StringBuilder is not thread-safe.
+
+	They are mutable (modifiable).
+
+	a) capacity()
+	b) append()
+	c) insert()
+	d) delete()
+	e) reverse()
+
+StringJoiner (jdk 1.8)
+    used to join group of Strings.
+
+    StringJoiner(delimiter)
+    StringJoiner(delimiter, prefix, suffix)
+    merge()
+
+StringTokenizer (java.util)         -- Legacy Class
+    to split the string into words based on the delimiter given.
+
+    StringTokenizer(string, delimiter, boolean returnDelims)
+
+    hasTokens()
+    nextToken()
+
+    Since it is a legacy class, we can use split() of String class, which offer better
+    performance.
+
+
+
+Wrapper Classes                     static method
+---------------------               ---------------------------------
+    java.lang.Integer               parseInt(string-form-int)
+    java.lang.Short
+    java.lang.Byte
+    java.lang.Double                parseDouble(string-form-double)
+    java.lang.Boolean
+    java.lang.Float
+    java.lang.Character
+    java.lang.Long
+
+every wrapper class provide two constants.
+    MIN_VALUE 
+    MAX_VALUE
+
+ Boxing:
+    primitive variable into a wrapper object
+
+    int x = 89;
+    Integer iobj = x;   //auto-boxing
+
+ unBoxing:
+    wrapper object into primitive variable
+ 
+    Integer iobj = new Integer(109);
+    int x = iobj; // auto-unboxing
+
+static import: (JDK 1.5)
+------------------------
+    java.lang.Math class provide static methods.
+        sqrt()
+        abs()
+        pow()
+
+    int a, b;
+    double hypotenuse = Math.sqrt(Math.pow(a,2) + Math.pow(b,2));
+
+    (or)
+    import static java.lang.Math.sqrt;
+    import static java.lang.Math.pow;
+
+    double hypotenuse = sqrt(pow(a,2) + pow(b,2));
+
+
+    import java.util.Scanner;       // recommended
+    import java.util.*;             // bad coding practice
+
+
+
+
+
 Assignments:
 ------------
 1) include toString() in Person, Employee, Student, Manager class.
@@ -406,6 +710,19 @@ Assignments:
         prodName, price
    Store 10 products in an array.
    write a program to display all the products.
+
+
+3) What is the antonym keyword  for "final"?
+4) what is the difference between JDK, JVM, JRE?
+5) can we overload static methods?
+6) can we oberride static methods?
+7) can we have static classes?
+
+
+
+
+
+
 
 
 

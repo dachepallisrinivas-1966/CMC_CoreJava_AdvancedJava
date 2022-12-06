@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="in.cmc.model.ComplexNumber"/>
+    <fullyQualifiedTypeName name="in.cmc.model.Student"/>
+    <fullyQualifiedTypeName name="in.cmc.model.Manager"/>
 </qualifiedTypeNameHistroy>
