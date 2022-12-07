@@ -33,6 +33,18 @@ public class StringDemo {
 		System.out.println(str2.charAt(5));
 		// System.out.println(str2.charAt(15));
 		
+		System.out.println(str2.substring(5));
+		System.out.println(str2.substring(5,9));	
+		
+		String str3 = "java is an object oriented program secured robust";
+		
+		String[] words = str3.split(" ");
+		for(String word : words) {
+			System.out.println(word);
+		}
+		
+		
+		
 		
 		
 		

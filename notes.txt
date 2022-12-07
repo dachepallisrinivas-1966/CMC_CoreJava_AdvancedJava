@@ -54,7 +54,6 @@ object oriented
         methods.
         it is implemented in the form of public setters and getters.
 +   inheritance
-
 +   abstraction
 +   polymorphism
 
@@ -596,7 +595,7 @@ java.lang.String
 	1) length()		2) toUpperCase()		3) toLowerCase()
 	4) indexOf(String)	5) lastIndexOf(String)		6) startsWith(String)
 	7) endsWith(String)	8) contains(String)		9) charAt(index)
-	10) substring(start_index [, end_index] )		11) split()
+	10) substring(start_index_usiveincl [, end_index_exclusive] )		11) split()
 	12) equals(String)	13) equalsIgnoreCase(String)	14) compareTo(String)
 	15) valueOf()		16) format()        17) replace(old_char, new_char)
 
@@ -630,25 +629,6 @@ java.lang.StringBuffer and java.lang.StringBuilder:
 	d) delete()
 	e) reverse()
 
-StringJoiner (jdk 1.8)
-    used to join group of Strings.
-
-    StringJoiner(delimiter)
-    StringJoiner(delimiter, prefix, suffix)
-    merge()
-
-StringTokenizer (java.util)         -- Legacy Class
-    to split the string into words based on the delimiter given.
-
-    StringTokenizer(string, delimiter, boolean returnDelims)
-
-    hasTokens()
-    nextToken()
-
-    Since it is a legacy class, we can use split() of String class, which offer better
-    performance.
-
-
 
 Wrapper Classes                     static method
 ---------------------               ---------------------------------
@@ -661,9 +641,19 @@ Wrapper Classes                     static method
     java.lang.Character
     java.lang.Long
 
+
 every wrapper class provide two constants.
     MIN_VALUE 
     MAX_VALUE
+
+
+    String str = "123";
+    int num = Integer.parseInt(str);        // num = 123
+    System.out.println(num * 2);
+
+    System.out.println(Integer.MAX_VALUE);
+    System.out.println(Integer.MIN_VALUE);
+
 
  Boxing:
     primitive variable into a wrapper object
@@ -699,6 +689,145 @@ static import: (JDK 1.5)
 
 
 
+                                    Exception Handling
+                                ---------------------------
+
+    Error is detected by the compiler. The program will not be executed until we resolve them.
+        a) forgot to put a semi-colon(;)
+        b) wrong syntaxes
+        c) misspelt names etc.,
+
+    Exception means an unexpected event that is triggered in the program upon which the
+    program is abruptly terminated.
+
+    Every exception is a class (pre-defined)
+
+    Exception Details:  (Exception Stack Trace)
+    ----------------------------------------------
+        what is the exception message?          ...
+        what is the exception class name?       java.io.InputMismatchException
+        in which package?                       in.cms.ui
+        in which class exception occurred?      ExceptionDemo
+        in which method exception occurred?     main
+        what is the line number?                11
+  
+
+    Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at in.cms.ui.ExceptionDemo.main(ExceptionDemo.java:18)
+
+        what is the exception message?          / by zero
+        what is the exception class name?       java.lang.ArithmeticException
+        in which package?                       in.cms.ui
+        in which class exception occurred?      ExceptionDemo
+        in which method exception occurred?     main
+        what is the line number?                18
+
+    If we handle exception, the program will not be terminated. The execution is continued
+    by taking an appropriate action regarding that exception.
+
+    To handle exceptions, we have 5 keywords.
+        a) try
+        b) catch
+        c) finally
+        d) throw
+        c) throws
+
+    try
+    {
+        // code to be monitored by jvm
+        // if ExceptionClassName1 occurred, the control go to the catch block 1, 
+            then the finally block.
+        // if ExceptionClassName2 occurred, the control go to the catch block 2, 
+            then the finally block.
+        // if any other exception occurred, it go to the finally block and then 
+            the program is terminated.
+
+        // if no exceptions are occurred, then the finally block is executed.
+
+    }
+    catch(ExceptionClassName1  excep)
+    {
+        // action to be taken when the ExceptionClassName1 occurred in the try block.
+    }
+    catch(ExceptionClassName2  excep)
+    {
+        // action to be taken when the ExceptionClassName2 occurred in the try block.
+    }
+    finally
+    {
+        // action to be taken whether an exception occurred or not.
+    }
+
+note:
+-----
+    every try block must have at least one catch block or finally block.
+    we cannot write any statements between try and catch.
+    one try block can have many catch blocks.
+
+    one try can have another try within it.
+
+
+
+    Exceptions may or maynot reported by the compiler. 
+    If exception is not reported by the compiler, it is known as UncheckedExceptions.
+    Unchecked exceptions are inherited from java.lang.RuntimeException class.
+    Unchecked exceptrions are reported by JRE.
+
+    
+    if exception is reported by the compiler, it is known as CheckedExceptions.
+    CheckedExceptions must be handled using try and catch, then only we can execute the 
+    program.
+    All checked exceptions are inherited from java.lang.Exception class.
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        Object
+
+                                        Throwable
+                                        
+                                        Exception
+
+                        IOException                 RuntimeException
+                        SQLException
+                        ClassNotFoundException              InputMismatchException
+                                                            ArithmeticException
+                                                            StringIndexOutOfBoundsException
+                                                            ArrayIndexOutOfBoundsException
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Assignments:
@@ -714,9 +843,42 @@ Assignments:
 
 3) What is the antonym keyword  for "final"?
 4) what is the difference between JDK, JVM, JRE?
-5) can we overload static methods?
-6) can we oberride static methods?
+5) can we overload static methods?  
+6) can we override static methods?          
 7) can we have static classes?
+
+
+8) what is static block?
+
+
+
+create a class called "Point".
+    data members : x, y
+    initialize the point object with 0,0 if no values are given.
+    initialize the point object with the given values.
+    find the distance between to given points.
+    find the mid point of two given points.
+    find whether three given points form a triangle or not.
+
+    No need to write the App. It can be done later.
+
+Reverse String program using StringBuilder.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
