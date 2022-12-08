@@ -771,7 +771,7 @@ note:
     Exceptions may or maynot reported by the compiler. 
     If exception is not reported by the compiler, it is known as UncheckedExceptions.
     Unchecked exceptions are inherited from java.lang.RuntimeException class.
-    Unchecked exceptrions are reported by JRE.
+    Unchecked exceptrions are reported by interpreter (JRE)
 
     
     if exception is reported by the compiler, it is known as CheckedExceptions.
@@ -781,20 +781,10 @@ note:
 
 
 
-
-
-
-
-
-
-
-
-
-
                                         Object
 
                                         Throwable
-                                        
+
                                         Exception
 
                         IOException                 RuntimeException
@@ -803,6 +793,212 @@ note:
                                                             ArithmeticException
                                                             StringIndexOutOfBoundsException
                                                             ArrayIndexOutOfBoundsException
+                                                            NegativeArraySizeException
+
+    throw:
+        is used to raise an exception explicitly (programmatically)
+
+        syntax:
+            throw new UserDefinedExceptionClassName();
+
+
+                                    user defined exceptions
+                                --------------------------------
+    1. create a class, must be inherited from Exception class.
+
+    throws:
+    -------
+        is used to delegate the exception handling reponsibility to the caller
+        of the method.
+
+
+
+        class   JavaTrainer   {
+
+            public static void main() throws  NetWorkException, TransportException {
+                try {
+                    throw new DoubtsClarificationException();       // 1.
+
+                    throw new QuickRecapException();                // 2.
+
+                    throw new ResumeBuildingException();            // 3.
+
+
+
+                } catch(DoubtsClarificationException excep) {
+
+                } catch(QuickRecapException excep) {
+
+                } catch(ResumeBuildingException excep) {
+
+                }
+            }
+        }
+
+
+    class Shopping {
+
+        public void purchase(Card card) throws CardDeclinedException {
+            // 
+        }
+
+        public void purchase(Cash cash) {
+            // payment with cash
+        }
+    }
+
+    class Customer {
+        public void shopping() {
+            Shopping shopping = new Shopping();
+            try {
+                shopping.purchase(creditCard);
+            } catch(CardDeclinedException excep) {
+                shopping.purchase(cash);
+            }
+        }
+    }
+
+
+1.card may be blocked.
+2.insufficient balance
+3.bad network
+
+
+
+
+int a,b,c;
+
+store 1000 numbers?         will you take 1000 variables?       NO
+
+
+int[] arr = new int[1000];
+arr[0] = 10
+arr[1] = 5.6;       // not allowed
+arr[1] = 20;
+arr[2] = 30;
+arr[3] = 40;
+...
+
+10  20  30  40
+10  30  40
+
+
+        
+
+1. the size of the array is fixed.
+2. array is homogeneous.
+3. insertion, deletion, sort, search - basic operations are also not supported.
+
+
+                                            Collections Framework (Collections API)
+                                                    (java.util)
+                                        ----------------------------------------------
+provide set of interfaces, implementation classes, readymade methods.
+
+1. size is not fixed.
+2. it can be homogeneous or heterogeneous
+3. ready made methods available to do operations.
+
+
+                                                Collections Hierarchy
+                                                ---------------------
+                                    
+
+                                    Iterable (i)
+
+                                    Collection (i)                                  Map (i)
+
+                        List (i)                    Set(i)                         
+
+                        ArrayList                       HashSet                     HashMap 
+                        LinkedList                      LinkedHashSet               LinkedHashMap
+                                                        TreeSet                     TreeMap
+
+Collections are used to store objects.
+
+1) raw collection           (heterogeneous - not recommended)
+2) generic collection       (homogeneous - recommended)
+    provide type safety.
+
+
+cursors:
+---------
+1) Iterator
+
+
+
+
+List:
+    1. duplicates are allowed.
+    2. index based operations
+
+    add()
+    remove()
+    set()
+    get()
+    size()
+
+    ArrayList:
+    ----------
+        List list = new ArrayList();
+
+        ArrayList list = new ArrayList();
+
+        clear()     :   to remove all elements
+        contains()  :   to search for an element
+
+        is best when modifications are less frequent.
+
+    LinkedList:
+    ------------
+        List list = new LinkedList();
+
+        LinkedList list = new LinkedList();
+
+        is best when modifications are frequent.
+
+        a) addFirst()
+        b) addLast()
+        c) removeFirst()
+        d) removeLast()
+
+    Queue:
+    ---------
+        FIFO
+
+
+
+Set:
+    1. no duplicates
+    2. no index based operations
+
+
+    HashSet             :   order is not guaranteed
+    LinkedHashSet       :   insertion order
+    TreeSet             :   sorted order
+
+    does set allow null values?
+
+
+
+Map:
+    1. collection of key-value pairs.
+    2. key cannot be duplicated.
+    3. value can be duplicated.
+    4. key cannot be null.
+    5. value can be null.
+    6. do not follow index
+
+    HashMap             :   order is not guaranteed
+    LinkedHashMap       :   insertion order
+    TreeMap             :   sorted order on key
+
+    put(key, value)
+    value get(key)
+
+
+
+
 
 
 

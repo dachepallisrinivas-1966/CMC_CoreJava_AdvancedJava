@@ -3,4 +3,5 @@
     <fullyQualifiedTypeName name="in.cmc.model.ComplexNumber"/>
     <fullyQualifiedTypeName name="in.cmc.model.Student"/>
     <fullyQualifiedTypeName name="in.cmc.model.Manager"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 </qualifiedTypeNameHistroy>
