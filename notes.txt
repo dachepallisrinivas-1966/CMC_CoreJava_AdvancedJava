@@ -995,8 +995,201 @@ Map:
 
     put(key, value)
     value get(key)
+    Set<key>    keySet()
+    boolean containsKey(key)
+    Collection values()
+
+    Entry : key + value
 
 
+java.util.Comparable<T> (I)
+----------------------------
+    int compareTo(o)
+        if both objects are equal, we should return 0.
+        if invoking object is bigger return a +ve value (1)
+        if invoking object is smaller return a -ve value (-1)
+
+
+
+java.util.Collections class provide utility methods:
+------------------------------------------------------
+a) sort(Collection)                 : natural sorting order
+b) sort(Collection, Comparator)     : custom comparator
+
+
+java.util.Comparator<T> (I):
+---------------------------------
+    int compare(o1, o2)
+     if both objects are equal, we should return 0.
+        if invoking object is bigger return a +ve value (1)
+        if invoking object is smaller return a -ve value (-1)
+
+    
+contract between equals and hashcode()?
+------------------------------------------
+    if two objects are equal as per the equals(), then objects must have same hash code.
+    but vice versa is not necessary.
+
+
+
+
+                                            MySQL
+                                        -------------
+1. It is an RDBMS product.
+2. It uses SQL () to communicate with Database.
+3. SQL commands ...
+    a) DDL          :   CREATE/ALTER/DROP/TRUNCATE/RENAME
+    b) DML          :   INSERT/UPDATE/DELETE
+    c) DCL          :   GRANT/REVOKE
+    d) TCL          :   COMMIT/ROLLBACK
+    e) DRL / DQL    :   SELECT
+
+
+    Integrity Constraints:
+    ------------------------
+    1) PRIMARY KEY
+    2) FOREIGN KEY  (REFERENCES)
+    3) NOT NULL
+    4) UNIQUE
+    5) CHECK (condition)
+
+    primary key:
+    ------------
+    1. it is a column or combination of columns that identify each row uniquely.
+    2. a table can have one primary key
+    3. it does not allow null values.
+    4. it does not allow duplicate values.
+
+    foreign key:
+    ------------
+    1. it is a column or combination of columns that is used to establish relation between a child to 
+       parent table.
+    2. a table can have many foreign keys.
+    3. it allow duplicate values
+    4. it allow null values
+    5. every foreign key must be defined as primary key in it's parent table.
+
+
+
+    INSERT:
+        INSERT INTO tablename [(col-1, col-2, ...)]
+        VALUES (value-1, value-2 ....);
+
+    UPDATE:
+        UPDATE  tablename
+        SET   col-1 = value-1  [, col-2 = value-2, ...]
+        [WHERE  condition];
+
+    DELETE:
+        DELETE FROM tablename
+        [WHERE  condition];
+
+    DROP TABLE:
+        DROP  TABLE  tablename;
+
+
+    SELECT:
+    -------
+        to retrieve value from a table.
+
+        SELECT * FROM tablename;
+        SELECT columnlist FROM tablename;
+
+        select employee_id, first_name, salary from employees;
+
+        we can perform ...
+        a) arithmetic operations
+        b) column alias
+  
+
+        calculate the monthly salary of all employees.
+
+        select employee_id, first_name, salary, commission_pct, salary+(salary*commission_pct)
+        from employees;
+
+        null:
+        -----
+        when a column lacks value then it is said to be null.
+        a null is either unassigned, unpredicted or undetermined.
+        it is not same as zero.
+        any arithmetic operation performed with null value leads to null result.
+
+        ifnull():
+        ---------
+        select employee_id, first_name, salary, commission_pct, salary+(salary*ifnull(commission_pct,0))
+        from employees;
+
+        distinct qualifier:
+        --------------------
+        to eliminate duplicate rows in the output.
+
+
+        operators:
+        -------------
+        1) arithmetic operators :   +   -   *   /   
+        2) relational operators:    >   <   =   >=  <=  != 
+        3) logical operators:   and     or      not
+
+
+        WHERE clause:
+        -------------
+        1) display all employees who earn more than 15000.
+
+        select employee_id, first_name, salary from employees where salary > 15000;
+
+        2) display all employees who belong to 50 department.
+
+        select employee_id, first_name, salary, department_id from employees where department_id = 50;
+
+        3) display all sales managers.
+
+        select employee_id, first_name, job_id from employees where job_id = 'sa_man';
+
+        4) display all employees who were hired in the year 1997.
+
+            select employee_id, first_name, hire_date
+            from employees
+            where hire_date like '1997%';
+
+            select employee_id, first_name, job_id, hire_date 
+            from employees 
+            where extract(YEAR from hire_date) = 1997;
+
+            ????
+
+        5) display all employees whose first name begin with alphabet S.
+
+        select employee_id, first_name
+        from employees
+        where first_name like 'S%';
+
+        6) display all employees whose first name ends with alphabet 'n'.
+
+        select employee_id, first_name
+        from employees
+        where first_name like '%n';
+
+        7) display all employees whose first name contain second character as 'o'.
+
+        select employee_id, first_name
+        from employees
+        where first_name like '_o%';
+
+        8) display all employees who do not earn any commission.
+
+        select employee_id, first_name, commission_pct
+        from employees
+        where commission_pct is null;
+
+
+
+
+
+
+
+
+
+   
 
 
 
@@ -1060,6 +1253,7 @@ create a class called "Point".
 
 Reverse String program using StringBuilder.
 
+9) what is the need of Comparable and Comparator?
 
 
 

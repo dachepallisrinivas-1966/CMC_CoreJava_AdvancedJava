@@ -4,4 +4,7 @@
     <fullyQualifiedTypeName name="in.cmc.model.Student"/>
     <fullyQualifiedTypeName name="in.cmc.model.Manager"/>
     <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="in.cms.service.NameComparator"/>
 </qualifiedTypeNameHistroy>
