@@ -2,7 +2,7 @@ D.Srinivas
 Corporate Trainer
 32 years of experience
 15+ programming languages
-Trained for CapGemini, Cognizant, InfoSys, Wipro, Samsung, LTI, CGI, Mphasis etc.,
+Trained for CapGemini, Cognizant, InfoSys, Wipro, Samsung, LTI, CGI, Mphasis,CMS etc.,
 
 You can reach me:
 Call/WhatsApp : 6305730633
@@ -1182,26 +1182,225 @@ contract between equals and hashcode()?
         where commission_pct is null;
 
 
+        joins
+        sub queries
+ 
+
+    group (aggregate) functions :
+    ------------------------------
+            these functions work on groups of rows rather than the entire table.
+
+        sum(col/val)
+        avg(col/val)
+        count(col/val)
+        min(col/val)
+        max(col/val)        
+
+    display total salary of employees.
+
+        select sum(salary) from employees;
+        select avg(salary) from employees;
+
+    display maximum salary of all employees working in department 50.
+        select max(salary) from employees where department_id = 50;
+
+    display total number of it programmers.
+        select count(*) from employees where job_id = 'IT_PROG';
+
+
+    GROUP BY:
+    ----------
+        used to divide rows into groups, so that we can perform aggregate
+        functions on each group.
+
+        SELECT   col/*
+        FROM    tablename
+        [WHERE  condition]
+        [GROUP  BY  col-1, col-2, ...]
+        [ORDER  BY  col-1, col-2, ...];
+
+    display total salary of each department.
+
+        select  department_id, sum(salary)
+        from employees
+        group by department_id;
+
+    display total number of employees for each job.
+
+        select job_id, count(*)
+        from employees
+        group by job_id;
+
+    display average salary of each departments whose id is more than 50.
+
+        select department_id, avg(salary)
+        from employees
+        where department_id > 50
+        group by department_id;
+
+    display total salary of each job which is more than 10000.
+
+        select job_id, sum(salary)
+        from employees
+        where sum(salary) > 10000
+        group by job_id;
+
+    note:
+    ------
+        we cannot use aggregate functions in the where clause. 
+
+
+    HAVING clause:
+    --------------
+        is used to filter rows after grouping.
+        is always in conjunction with GROUP BY.
+
+
+    select job_id, sum(salary)
+    from employees
+    group by job_id
+    having sum(salary) > 10000;
+
+    what is the difference between where and having?
+
+        WHERE is used to filter rows before grouping
+        HAVING is used to filter rows after grouping
+
+    
+                                JOINS
+                            --------------
+    
+    to retrieve data from multiple related tables.
+    both the tables must have a common column.
+
+    1) inner join       : consider only matching rows.
+    2) outer join       : matching rows + unmatched rows
+            i) left outer join      :   matching rows + unmatched rows from left table
+            ii) right outer join    :   matching rows + unmatched rows from right table
+
+
+
+    display employee id, first name, department name of all employees.
+
+    select employee_id, first_name, department_name
+    from employees              // left table
+    join departments            // right table
+    using (department_id);
+
+
+    emp                                     dept
+
+    101     john    10                      10      sales
+    102     david   10                      20      it
+    103     meena   20                      30      finance
+    104     radha   ..      // ignored
+
+                    output
+
+        101    john         sales
+        102    david        sales
+        103     meena       it
+
+
+    select employee_id, first_name, department_name
+    from employees              
+    left outer join departments           
+    using (department_id);
+
+                        output
+        
+        101    john         sales
+        102    david        sales
+        103    meena        it
+        104    radha        ..
+
+    select employee_id, first_name, department_name
+    from employees              
+    right outer join departments           
+    using (department_id);
+
+                       output
+        
+        101    john         sales
+        102    david        sales
+        103    meena        it
+        ..       ..         finance
+
+    
+
+                                            JDBC API
+                                (Java Database Connectivity)
+                            -------------------------------------
+    API     stands for Application Programming Interface.
+            collection interfaces, abstract classes etc.,
+
+
+    implementations are provided by DB Vendors.
+
+    MYSQL           MySQL implementation classes of JDBC API
+    Oracle          Oracle implementation classes of JDBC API
+    etc.,
+
+    .jar file       implementations of any API
+
+    JDBC Driver     it is a jar (Java Archive File)
+                    any jar contain several .class files.
+
+
+    java.sql package
+    -----------------------
+    Connection (I)
+    +   Statement createStatement()
+    +   PreparedStatement prepareStatement(sql)
+    DriverManager (A)
+    +   getConnection(url, userName, password)
+    Statement (I)
+    +   executeUpdate(sql)
+    PreparedStatement (I)
+    +   executeUpdate()     for insert/update/delete
+    +   ResultSet executeQuery()      for select
+    ResultSet (I)
+    +   to retrieve the data from the database.
+    +   next()
+    +   getxxx(column_number / column_name)
+
+
+    steps:
+    ------
+    1. load the driver class
+    2. establish a connection
+    3. create a statement and associate with the sql command
+    4. execute the sql command
+    5. once the job is done, close the connection and other resources.
+
+
+write an update program to modify the salary of an employee for
+the given empno.
+
+write a delete program to delete an employee when the empno is given.
+
+
+
+CRUD operation:
+    Create
+    Retrieve
+    Update
+    Deletion
+
+
+
+    
 
 
 
 
 
+    
 
 
-   
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
 
