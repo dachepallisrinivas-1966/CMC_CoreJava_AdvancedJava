@@ -1455,6 +1455,31 @@ Reverse String program using StringBuilder.
 9) what is the need of Comparable and Comparator?
 
 
+                                                    Servlets
+                                            ------------------------
+
+    query string:
+    -------------
+        url ? var-1 = value-1 & var-2 = value-2 & 
+
+
+    HttpServletRequest:
+    ----------------------
+        String getParameter("var-1")            : to read query string variables
+        setAttribute(key, value)
+        getAttribute(key)
+        getRequestDispatcher(url)
+
+
+    Request Dispatching:
+    ----------------------
+        it is used to transfer the control from one servlet other servlet / jsp / any other resource.
+
+    RequestDispatcher
+        include(request, response)
+        forward(request, response)
+
+
 
 
 
