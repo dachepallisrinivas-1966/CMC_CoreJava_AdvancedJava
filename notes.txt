@@ -1481,7 +1481,70 @@ Reverse String program using StringBuilder.
 
 
 
+    Session Management:
+    ------------------------
+    Http protocol is called stateless protocol.
+    Session is memory allocated for a particular user whenever he logged in.
+    Session is destroyed automatically when the user logged out or session is timed out.
+    the default session time out is 20 mins.
 
+
+    In servlet technology, session is not available for us, unless we ask for it.
+
+    HttpSession             request.getSession();
+
+    if we store any data in the session object, it is available across multiple requests of the user.
+    this data is available until the user logged out or session timed out.
+
+    setAttribute(key, value)
+    getAttribute(vkey)
+
+
+
+    Singleton Design Pattern
+        if a class contain only one object for the entire application, it is known as
+        singleton design pattern.
+
+
+    sendRedirect()              HttpResponse
+
+
+
+            
+                                                    JSP
+                                                ------------
+
+    Java 8 features:
+    ---------------------
+    LocalDate           
+    LocalTime
+    LocalDateTime
+                            now()
+                            of()
+                            parse(string-form-date)
+    Period                  : get the gap between two dates
+    DateTimeFormatter   
+
+
+
+    JSP Standard Actions  (action tags):
+    ----------------------------------------
+    to perform request dispatching:
+    -------------------------------
+    <jsp:include>
+    <jsp:forward>
+    <jsp:param>
+    <jsp:useBean>
+    <jsp:setProperty>
+    <jsp:getProperty>
+    
+
+    EL:     (JSP Expression Langauge)
+    --------------------------------------
+    ${param.variableName}               :   read request parameter
+    ${requestScope.variableName}        :   read request attributes
+    ${sessionScope.vriableName}         :   read session attributes
+    ${applicationScope.variableName}     :   read application attributes
 
 
 
